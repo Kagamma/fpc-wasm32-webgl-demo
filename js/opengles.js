@@ -69,8 +69,10 @@ export function OpenGLES(gl) {
 
   function glCreateBuffers(n, buffers) {
     refreshMemory();
-    const buf = gl.createBuffer();
-    view.setUint32(buffers, createHandle(buf), true);
+    for (let i = 0; i < n; i++) {
+      const buf = gl.createBuffer();
+      view.setUint32(buffers + i * 4, createHandle(buf), true);
+    }
   }
 
   function glBindBuffer(target, handle) {
