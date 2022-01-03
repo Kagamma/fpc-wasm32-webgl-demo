@@ -2,7 +2,7 @@ import {
   pcharToJSString,
 } from './utils.js';
 
-export function WebGL(gl) {
+export function OpenGLES(gl) {
   let view = null;
   let moduleInstanceExports = null;
   const objHeap = new Array(1024 * 64);

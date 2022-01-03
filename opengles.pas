@@ -1,4 +1,4 @@
-unit WebGL;
+unit OpenGLES;
 
 interface
 
@@ -779,25 +779,25 @@ const
   GL_NUM_SAMPLE_COUNTS = $9380;
   GL_TEXTURE_IMMUTABLE_LEVELS = $82DF;
 
-procedure glClearColor(red, green, blue, alpha: GLfloat); external 'webgl' name 'glClearColor';
-procedure glViewport(x, y: GLenum; width, height: GLsizei); external 'webgl' name 'glViewport';
-procedure glClear(mask: GLbitfield); external 'webgl' name 'glClear';
-procedure glEnable(cap: GLenum); external 'webgl' name 'glEnable';
-procedure glDisable(cap: GLenum); external 'webgl' name 'glDisable';
-procedure glCreateBuffers(n: GLsizei; buffers: PGLuint); external 'webgl' name 'glCreateBuffers';
-procedure glBindBuffer(target: GLenum; buffer: GLuint); external 'webgl' name 'glBindBuffer';
-procedure glBufferData(target: GLenum; size: GLsizeiptr; const data: GLvoid; usage: GLenum); external 'webgl' name 'glBufferData';
-function glCreateShader(shaderType: GLenum): GLuint; external 'webgl' name 'glCreateShader';
-procedure glShaderSource(shader: GLuint; count: GLsizei; _string: PPGLchar; length: pGLint); external 'webgl' name 'glShaderSource';
-procedure glCompileShader(shader: GLuint); external 'webgl' name 'glCompileShader';
-function glCreateProgram: GLuint; external 'webgl' name 'glCreateProgram';
-procedure glAttachShader(_program: GLuint; shader: GLuint); external 'webgl' name 'glAttachShader';
-procedure glLinkProgram(_program: GLuint); external 'webgl' name 'glLinkProgram';
-procedure glUseProgram(_program: GLuint); external 'webgl' name 'glUseProgram';
-function glGetAttribLocation(_program: GLuint; name: PGLchar): GLint; external 'webgl' name 'glGetAttribLocation';
-procedure glVertexAttribPointer(indx: GLuint; size: GLint; _type: GLenum; normalized: GLboolean; stride:GLsizei; ptr: PGLuint); external 'webgl' name 'glVertexAttribPointer';
-procedure glEnableVertexAttribArray(indx: GLuint); external 'webgl' name 'glEnableVertexAttribArray';
-procedure glDrawElements(mode: GLenum; count: GLsizei; _type: GLenum; indices: PGLuint); external 'webgl' name 'glDrawElements';
+procedure glClearColor(red, green, blue, alpha: GLfloat); external 'opengles' name 'glClearColor';
+procedure glViewport(x, y: GLenum; width, height: GLsizei); external 'opengles' name 'glViewport';
+procedure glClear(mask: GLbitfield); external 'opengles' name 'glClear';
+procedure glEnable(cap: GLenum); external 'opengles' name 'glEnable';
+procedure glDisable(cap: GLenum); external 'opengles' name 'glDisable';
+procedure glCreateBuffers(n: GLsizei; buffers: PGLuint); external 'opengles' name 'glCreateBuffers';
+procedure glBindBuffer(target: GLenum; buffer: GLuint); external 'opengles' name 'glBindBuffer';
+procedure glBufferData(target: GLenum; size: GLsizeiptr; const data: GLvoid; usage: GLenum); external 'opengles' name 'glBufferData';
+function glCreateShader(shaderType: GLenum): GLuint; external 'opengles' name 'glCreateShader';
+procedure glShaderSource(shader: GLuint; count: GLsizei; _string: PPGLchar; length: pGLint); external 'opengles' name 'glShaderSource';
+procedure glCompileShader(shader: GLuint); external 'opengles' name 'glCompileShader';
+function glCreateProgram: GLuint; external 'opengles' name 'glCreateProgram';
+procedure glAttachShader(_program: GLuint; shader: GLuint); external 'opengles' name 'glAttachShader';
+procedure glLinkProgram(_program: GLuint); external 'opengles' name 'glLinkProgram';
+procedure glUseProgram(_program: GLuint); external 'opengles' name 'glUseProgram';
+function glGetAttribLocation(_program: GLuint; name: PGLchar): GLint; external 'opengles' name 'glGetAttribLocation';
+procedure glVertexAttribPointer(indx: GLuint; size: GLint; _type: GLenum; normalized: GLboolean; stride:GLsizei; ptr: PGLuint); external 'opengles' name 'glVertexAttribPointer';
+procedure glEnableVertexAttribArray(indx: GLuint); external 'opengles' name 'glEnableVertexAttribArray';
+procedure glDrawElements(mode: GLenum; count: GLsizei; _type: GLenum; indices: PGLuint); external 'opengles' name 'glDrawElements';
 
 implementation
 

@@ -4,7 +4,7 @@ program App;
 {$define nl:=+ LineEnding +}
 
 uses
-  WebGL;
+  OpenGLES;
 
 var
   VertShaderSource: PChar =

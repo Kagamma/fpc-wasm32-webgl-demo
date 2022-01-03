@@ -1,5 +1,5 @@
 import { WASI } from './wasi.js';
-import { WebGL } from './webgl.js';
+import { OpenGLES } from './opengles.js';
 
 const wasi = new WASI();
 
@@ -17,15 +17,15 @@ if (!gl) {
   console.log('WebGL context initialized.');
 }
 
-const webgl = new WebGL(gl);
+const opengles = new OpenGLES(gl);
 const importModule = {
   wasi_snapshot_preview1: wasi,
-  webgl: webgl,
+  opengles: opengles,
 };
 
 (async () => {
   const result = await WebAssembly.instantiateStreaming(fetch('app.wasm'), importModule);
   wasi.setModuleInstance(result.instance);
-  webgl.setModuleInstance(result.instance);
+  opengles.setModuleInstance(result.instance);
   result.instance.exports._start();
 })();
