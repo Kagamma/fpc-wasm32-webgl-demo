@@ -32,6 +32,7 @@ var
   FragShader,
   Prog: GLuint;
   VertexLoc: GLint;
+  Len: GLuint;
 
 begin
   // Prepare
@@ -46,11 +47,13 @@ begin
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
   VertShader := glCreateShader(GL_VERTEX_SHADER);
-  glShaderSource(VertShader, 1, @VertShaderSource, nil);
+  Len := Length(VertShaderSource);
+  glShaderSource(VertShader, 1, @VertShaderSource, @Len);
   glCompileShader(VertShader);
 
   FragShader := glCreateShader(GL_FRAGMENT_SHADER);
-  glShaderSource(FragShader, 1, @FragShaderSource, nil);
+  Len := Length(FragShaderSource);
+  glShaderSource(FragShader, 1, @FragShaderSource, @Len);
   glCompileShader(FragShader);
 
   Prog := glCreateProgram;

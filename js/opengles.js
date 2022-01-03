@@ -90,12 +90,15 @@ export function OpenGLES(gl) {
     return createHandle(shader);
   }
 
-  function glShaderSource(handle, count, sources, length) {
+  function glShaderSource(handle, count, sources, lengths) {
     refreshMemory();
-    const shader = objHeap[handle];
-    const source = view.getUint32(sources, true);
-    const s = pcharToJSString(view, moduleInstanceExports.memory.buffer, source);
-    gl.shaderSource(shader, s);
+    for (let i = 0; i < count; i++) {
+      const shader = objHeap[handle];
+      const source = view.getUint32(sources + i * 4, true);
+      const len = view.getUint32(lengths + i * 4, true);
+      const s = pcharToJSString(view, moduleInstanceExports.memory.buffer, source, len);
+      gl.shaderSource(shader, s);
+    }
   }
 
   function glCompileShader(handle) {

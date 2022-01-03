@@ -20,8 +20,8 @@ export function pcharLen(view, buf) {
  * @param {*} buf PChar
  * @returns JS string
  */
-export function pcharToJSString(view, base, buf) {
-  const buffer = new Uint8Array(base, buf, pcharLen(view, buf));
+export function pcharToJSString(view, base, buf, len = -1) {
+  const buffer = new Uint8Array(base, buf, len === -1 ? pcharLen(view, buf) : len);
   const bufferBytes = [];
   for (let i = 0; i < buffer.byteLength; i++) {
     bufferBytes.push(buffer[i]);
