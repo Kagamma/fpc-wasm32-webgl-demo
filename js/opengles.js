@@ -86,8 +86,7 @@ export function OpenGLES(gl) {
   }
 
   function glCreateShader(shaderType) {
-    const shader = gl.createShader(shaderType);
-    return createHandle(shader);
+    return createHandle(gl.createShader(shaderType));
   }
 
   function glShaderSource(handle, count, sources, lengths) {
@@ -102,29 +101,25 @@ export function OpenGLES(gl) {
   }
 
   function glCompileShader(handle) {
-    const shader = objHeap[handle];
-    gl.compileShader(shader);
+    gl.compileShader(objHeap[handle]);
   }
 
   function glCreateProgram() {
-    const prog = gl.createProgram();
-    return createHandle(prog);
+    return createHandle(gl.createProgram());
   }
 
   function glAttachShader(progHandle, shaderHandle) {
     const shader = objHeap[shaderHandle];
     const prog = objHeap[progHandle];
-    return gl.attachShader(prog, shader);
+    gl.attachShader(prog, shader);
   }
 
   function glLinkProgram(handle) {
-    const prog = objHeap[handle];
-    return gl.linkProgram(prog);
+    gl.linkProgram(objHeap[handle]);
   }
 
   function glUseProgram(handle) {
-    const prog = objHeap[handle];
-    return gl.useProgram(prog);
+    gl.useProgram(objHeap[handle]);
   }
 
   function glGetAttribLocation(handle, name) {
