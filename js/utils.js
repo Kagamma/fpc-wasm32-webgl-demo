@@ -22,9 +22,5 @@ export function pcharLen(view, buf) {
  */
 export function pcharToJSString(view, base, buf, len = -1) {
   const buffer = new Uint8Array(base, buf, len === -1 ? pcharLen(view, buf) : len);
-  const bufferBytes = [];
-  for (let i = 0; i < buffer.byteLength; i++) {
-    bufferBytes.push(buffer[i]);
-  }
-  return String.fromCharCode.apply(null, bufferBytes);
+  return new TextDecoder('utf-8').decode(buffer);
 }
